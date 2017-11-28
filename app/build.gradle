@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    resourcePrefix "app_"  //资源前缀
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // 设置为true会关闭lint分析进度
+        quiet true
+        // 如果为true，则在发现错误时停止gradle构建
+        abortOnError false
+        // 如果为true，则只报告错误
+        ignoreWarnings true
+    }
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    if(IS_SINGLE_MODULE.toBoolean()){
+
+    }else {
+        releaseCompile project(path: ':module_one', configuration: 'release')
+        debugCompile project(path: ':module_one', configuration: 'debug')
+
+        releaseCompile project(path: ':module_two', configuration: 'release')
+        debugCompile project(path: ':module_two', configuration: 'debug')
+
+        releaseCompile project(path: ':module_three', configuration: 'release')
+        debugCompile project(path: ':module_three', configuration: 'debug')
+
+        releaseCompile project(path: ':module_four', configuration: 'release')
+        debugCompile project(path: ':module_four', configuration: 'debug')
+
+    }
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.annotationButterKnifeVersion"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.annotationArouterVersion"
+
+}

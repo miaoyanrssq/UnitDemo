@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/UnitDemo.iml" filepath="$PROJECT_DIR$/UnitDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/arouter_component/arouter_component.iml" filepath="$PROJECT_DIR$/arouter_component/arouter_component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/business_lib/business_lib.iml" filepath="$PROJECT_DIR$/business_lib/business_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image_component/image_component.iml" filepath="$PROJECT_DIR$/image_component/image_component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_four/module_four.iml" filepath="$PROJECT_DIR$/module_four/module_four.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_one/module_one.iml" filepath="$PROJECT_DIR$/module_one/module_one.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_three/module_three.iml" filepath="$PROJECT_DIR$/module_three/module_three.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_two/module_two.iml" filepath="$PROJECT_DIR$/module_two/module_two.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net_component/net_component.iml" filepath="$PROJECT_DIR$/net_component/net_component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils_component/utils_component.iml" filepath="$PROJECT_DIR$/utils_component/utils_component.iml" />
+    </modules>
+  </component>
+</project>

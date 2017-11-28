@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+
+android {
+    resourcePrefix "utils_"  //资源前缀
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            buildConfigField 'boolean', 'IS_DEBUG_MODE', IS_DEBUG_MODE_RELEASE
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField 'boolean', 'IS_DEBUG_MODE', IS_DEBUG_MODE_DEBUG
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        /* 跟随主项目buildType */
+        publishNonDefault true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.orhanobut:logger:$rootProject.ext.loggerVersion"
+    compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
+    compile "com.android.support:appcompat-v7:$rootProject.ext.appcompatv7Version"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.annotationArouterVersion"
+    compile project(':arouter_component')
+}

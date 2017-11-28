@@ -1,0 +1,73 @@
+if (IS_SINGLE_MODULE.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'com.jakewharton.butterknife'
+
+
+/* 处理 butterknife 在lib中的应用*/
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.jakewharton:butterknife-gradle-plugin:8.4.0"
+    }
+}
+
+android {
+    resourcePrefix "moduleone_"  //资源前缀
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        /* 跟随主项目buildType */
+        publishNonDefault true
+
+    }
+
+
+
+    sourceSets {
+        main {
+            if (IS_SINGLE_MODULE.toBoolean()) {
+                manifest.srcFile 'src/main/java/debug/AndroidManifest_single.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    releaseCompile project(path: ':business_lib', configuration: 'release')
+    debugCompile project(path: ':business_lib', configuration: 'debug')
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.annotationButterKnifeVersion"
+
+}
+
+
