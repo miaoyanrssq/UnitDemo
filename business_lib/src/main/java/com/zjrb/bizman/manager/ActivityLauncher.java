@@ -1,6 +1,12 @@
 package com.zjrb.bizman.manager;
 
 import android.app.Activity;
+import android.content.Intent;
+
+import com.alibaba.android.arouter.facade.callback.NavCallback;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.zjrb.bizman.constant.ActivityRequestCode;
+import com.zjrb.bizman.constant.RouterPath;
 
 
 /**
@@ -20,6 +26,17 @@ public class ActivityLauncher {
             return false;
 
         return !activity.isFinishing();
+    }
+
+    /**
+     * 跳转到主页面
+     *
+     * @param activity
+     */
+    public static void gotoTestActivity(Activity activity) {
+        ARouter.getInstance()
+                .build(RouterPath.ACTIVITY_APP_TEST)
+                .navigation(activity,ActivityRequestCode.ACTIVITY_APP_TEST);
     }
 
 }

@@ -9,15 +9,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/arouter_component" />
             <option value="$PROJECT_DIR$/business_lib" />
-            <option value="$PROJECT_DIR$/image_component" />
+            <option value="$PROJECT_DIR$/component_arouter" />
+            <option value="$PROJECT_DIR$/component_image" />
+            <option value="$PROJECT_DIR$/component_net" />
+            <option value="$PROJECT_DIR$/component_utils" />
             <option value="$PROJECT_DIR$/module_four" />
             <option value="$PROJECT_DIR$/module_one" />
             <option value="$PROJECT_DIR$/module_three" />
             <option value="$PROJECT_DIR$/module_two" />
-            <option value="$PROJECT_DIR$/net_component" />
-            <option value="$PROJECT_DIR$/utils_component" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

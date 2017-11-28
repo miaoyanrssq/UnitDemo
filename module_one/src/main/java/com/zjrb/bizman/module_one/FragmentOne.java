@@ -12,6 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.socks.library.KLog;
 import com.socks.library.KLogUtil;
+import com.zjrb.bizman.constant.RouterPath;
 import com.zjrb.bizman.net_component.OnRequestListener;
 import com.zjrb.bizman.service.AppService;
 import com.zjrb.bizman.ui.BaseFragment;
@@ -31,7 +32,7 @@ public class FragmentOne extends BaseFragment {
     @BindView(R2.id.moduleone_tv)
     TextView tv;
     Unbinder unbinder;
-    @Autowired(name = "/app/service")
+    @Autowired(name = RouterPath.APP_SERVICE)
     private AppService service;
 
 

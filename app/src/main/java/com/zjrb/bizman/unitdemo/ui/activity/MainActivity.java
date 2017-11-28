@@ -3,6 +3,7 @@ package com.zjrb.bizman.unitdemo.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.zjrb.bizman.manager.ActivityLauncher;
 import com.zjrb.bizman.ui.BaseActivity;
 import com.zjrb.bizman.unitdemo.R;
 import com.zjrb.bizman.unitdemo.ui.widget.BottomBar;
@@ -51,7 +52,7 @@ public class MainActivity extends BaseActivity implements BottomBar.OnTabSelecte
 //        param.username = "chenshaohua";
 //        param.password = "12345678";
 //        UserApi.build().login(param,mOnRequestListener);
-//        ARouter.getInstance().build("/app/test").navigation();
+//        ActivityLauncher.gotoTestActivity(this);
     }
 
     @Override

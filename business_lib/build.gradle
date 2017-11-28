@@ -37,14 +37,14 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    releaseCompile project(path: ':image_component', configuration: 'release')
-    debugCompile project(path: ':image_component', configuration: 'debug')
+    releaseCompile project(path: ':component_image', configuration: 'release')
+    debugCompile project(path: ':component_image', configuration: 'debug')
 
-    releaseCompile project(path: ':net_component', configuration: 'release')
-    debugCompile project(path: ':net_component', configuration: 'debug')
+    releaseCompile project(path: ':component_net', configuration: 'release')
+    debugCompile project(path: ':component_net', configuration: 'debug')
 
-    releaseCompile project(path: ':utils_component', configuration: 'release')
-    debugCompile project(path: ':utils_component', configuration: 'debug')
+    releaseCompile project(path: ':component_utils', configuration: 'release')
+    debugCompile project(path: ':component_utils', configuration: 'debug')
 
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.annotationButterKnifeVersion"
