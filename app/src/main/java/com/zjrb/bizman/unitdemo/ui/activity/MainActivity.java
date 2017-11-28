@@ -7,6 +7,8 @@ import com.zjrb.bizman.manager.ActivityLauncher;
 import com.zjrb.bizman.ui.BaseActivity;
 import com.zjrb.bizman.unitdemo.R;
 import com.zjrb.bizman.unitdemo.ui.widget.BottomBar;
+import com.zjrb.bizman.unitdemo.webapi.api.UserApi;
+import com.zjrb.bizman.unitdemo.webapi.parm.LoginParam;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,15 +50,20 @@ public class MainActivity extends BaseActivity implements BottomBar.OnTabSelecte
     @Override
     public void loadData() {
         bottomBar.selectTab(getSupportFragmentManager(), 0);
-//        LoginParam param = new LoginParam(this);
-//        param.username = "chenshaohua";
-//        param.password = "12345678";
-//        UserApi.build().login(param,mOnRequestListener);
+        LoginParam param = new LoginParam(this);
+        param.username = "chenshaohua";
+        param.password = "12345678";
+        UserApi.build().login(param,mOnRequestListener);
 //        ActivityLauncher.gotoTestActivity(this);
     }
 
     @Override
     public void onTabSelected(View v, int index) {
         bottomBar.selectTab(getSupportFragmentManager(), index);
+    }
+
+    @Override
+    public void onSuccess(int requestCode, int responseCode, Object response) {
+        super.onSuccess(requestCode, responseCode, response);
     }
 }

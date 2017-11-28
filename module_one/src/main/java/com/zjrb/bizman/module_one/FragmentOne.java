@@ -10,13 +10,10 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.socks.library.KLog;
-import com.socks.library.KLogUtil;
 import com.zjrb.bizman.constant.RouterPath;
-import com.zjrb.bizman.net_component.OnRequestListener;
+import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 import com.zjrb.bizman.service.AppService;
 import com.zjrb.bizman.ui.BaseFragment;
-import com.zjrb.bizman.utils_component.log.LogUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

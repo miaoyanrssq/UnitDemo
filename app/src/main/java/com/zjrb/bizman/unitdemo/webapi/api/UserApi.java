@@ -2,7 +2,7 @@ package com.zjrb.bizman.unitdemo.webapi.api;
 
 import com.zjrb.bizman.api.BaseApi;
 import com.zjrb.bizman.api.BaseParam;
-import com.zjrb.bizman.net_component.OnRequestListener;
+import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 import com.zjrb.bizman.unitdemo.webapi.RequestCode;
 
 /**

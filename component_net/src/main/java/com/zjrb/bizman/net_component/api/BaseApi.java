@@ -2,8 +2,8 @@ package com.zjrb.bizman.net_component.api;
 
 
 import com.zjrb.bizman.net_component.ApiRequesterFactory;
-import com.zjrb.bizman.net_component.OnRequestCallback;
-import com.zjrb.bizman.net_component.OnRequestListener;
+import com.zjrb.bizman.net_component.interfaces.OnRequestCallback;
+import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 import com.zjrb.bizman.net_component.response.BaseResponse;
 
 /**

@@ -1,4 +1,4 @@
-package com.zjrb.bizman.net_component;
+package com.zjrb.bizman.net_component.interfaces;
 
 /**
  * 基础组件层网络请求回调

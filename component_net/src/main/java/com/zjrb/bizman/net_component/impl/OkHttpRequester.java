@@ -6,10 +6,11 @@ package com.zjrb.bizman.net_component.impl;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.zjrb.bizman.arouter_component.constant.BasicRouterPath;
 import com.zjrb.bizman.arouter_component.service.LogService;
-import com.zjrb.bizman.net_component.CertificatesManager;
-import com.zjrb.bizman.net_component.IApiReuqester;
-import com.zjrb.bizman.net_component.OnRequestCallback;
-import com.zjrb.bizman.net_component.SSLCertificatesInit;
+import com.zjrb.bizman.net_component.certificates.CertificatesManager;
+import com.zjrb.bizman.net_component.cookie.CookiesManager;
+import com.zjrb.bizman.net_component.interfaces.IApiReuqester;
+import com.zjrb.bizman.net_component.interfaces.OnRequestCallback;
+import com.zjrb.bizman.net_component.certificates.SSLCertificatesInit;
 import com.zjrb.bizman.net_component.constant.ExceptionCode;
 import com.zjrb.bizman.net_component.response.BaseResponse;
 import com.zjrb.bizman.net_component.serialize.SerializerFactory;
@@ -42,21 +43,21 @@ public class OkHttpRequester implements IApiReuqester {
     private static final String GZIP = "gzip";
     private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     private static final String DEBUG_FORMAT = "RESP CODE: %1$s, RESQ CODE %2$s, JSON:%3$s, EXCEPTION:%4$s";
-    private LogService logService = logService = (LogService) ARouter.getInstance().build(BasicRouterPath.LOG_SERVICE_URL).navigation();
+    private LogService logService = (LogService) ARouter.getInstance().build(BasicRouterPath.LOG_SERVICE_URL).navigation();
+    private static final long TIME_OUT = 10*1000;
+    private OkHttpClient mClient;
 
-
-    private OkHttpClient getInstance(long timeout) {
-        SSLSocketFactory[] socketFactory = new SSLSocketFactory[1];
-        X509TrustManager[] trustManager = new X509TrustManager[1];
-        SSLCertificatesInit.init(socketFactory, trustManager, CertificatesManager.getPayCerInputStream());
-        OkHttpClient client = new OkHttpClient()
-                .newBuilder()
-                .sslSocketFactory(socketFactory[0], trustManager[0])
-                .connectTimeout(timeout, TimeUnit.MILLISECONDS)
-                .writeTimeout(timeout, TimeUnit.MILLISECONDS)
-                .readTimeout(timeout, TimeUnit.MILLISECONDS)
-                .build();
-        return client;
+    private OkHttpClient getInstance(long timeout) throws Exception {
+        if(mClient == null){
+            mClient = new OkHttpClient()
+                    .newBuilder()
+                    .connectTimeout(timeout, TimeUnit.MILLISECONDS)
+                    .writeTimeout(timeout, TimeUnit.MILLISECONDS)
+                    .readTimeout(timeout, TimeUnit.MILLISECONDS)
+                    .cookieJar(new CookiesManager())
+                    .build();
+        }
+        return mClient;
     }
     
 
@@ -69,16 +70,17 @@ public class OkHttpRequester implements IApiReuqester {
             for (String key:paramMap.keySet()) {
                 urlBuilder.addQueryParameter(key,paramMap.get(key));
             }
-            Request.Builder builder = new Request.Builder()
+            Request request = new Request.Builder()
                     .url(urlBuilder.build())
                     .get()
-                    .addHeader("content-type", CONTENT_TYPE);
-            Request request = builder.build();
+                    .addHeader("content-type", CONTENT_TYPE)
+                    .build();
+
             if(logService != null){
                 logService.d("url", url);
             }
 
-            getInstance(Long.parseLong("10000")).newCall(request).enqueue(new Callback() {
+            getInstance(TIME_OUT).newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(final Call call, final IOException e) {
                     try {

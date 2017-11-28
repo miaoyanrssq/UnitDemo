@@ -2,6 +2,7 @@ package com.zjrb.bizman.net_component;
 
 
 import com.zjrb.bizman.net_component.impl.OkHttpRequester;
+import com.zjrb.bizman.net_component.interfaces.IApiReuqester;
 
 /**
  * Created by lujialei

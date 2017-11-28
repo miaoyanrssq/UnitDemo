@@ -3,7 +3,7 @@ package com.zjrb.bizman.service;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.template.IProvider;
-import com.zjrb.bizman.net_component.OnRequestListener;
+import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 
 /**
  * Created by lujialei on 2017/11/23.

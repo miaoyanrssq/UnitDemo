@@ -1,4 +1,4 @@
-package com.zjrb.bizman.net_component;
+package com.zjrb.bizman.net_component.certificates;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

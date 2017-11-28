@@ -2,6 +2,7 @@ package com.zjrb.bizman.net_component;
 
 
 import com.zjrb.bizman.net_component.impl.DownloadRequester;
+import com.zjrb.bizman.net_component.interfaces.IDownload;
 
 /**
  * Created by lujialei

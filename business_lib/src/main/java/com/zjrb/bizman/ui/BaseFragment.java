@@ -3,7 +3,7 @@ package com.zjrb.bizman.ui;
 import android.support.v4.app.Fragment;
 
 import com.zjrb.bizman.listener.OnPageInitialize;
-import com.zjrb.bizman.net_component.OnRequestListener;
+import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 
 
 /**

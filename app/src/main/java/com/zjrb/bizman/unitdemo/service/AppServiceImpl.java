@@ -3,7 +3,7 @@ package com.zjrb.bizman.unitdemo.service;
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.zjrb.bizman.net_component.OnRequestListener;
+import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 import com.zjrb.bizman.service.AppService;
 import com.zjrb.bizman.unitdemo.webapi.api.UserApi;
 import com.zjrb.bizman.unitdemo.webapi.parm.LoginParam;

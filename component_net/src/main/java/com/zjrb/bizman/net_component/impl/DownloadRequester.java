@@ -2,7 +2,7 @@ package com.zjrb.bizman.net_component.impl;
 
 import android.os.Environment;
 
-import com.zjrb.bizman.net_component.IDownload;
+import com.zjrb.bizman.net_component.interfaces.IDownload;
 
 import java.io.File;
 import java.io.FileOutputStream;
