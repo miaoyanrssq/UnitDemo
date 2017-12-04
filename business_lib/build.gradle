@@ -46,6 +46,9 @@ dependencies {
     releaseCompile project(path: ':component_utils', configuration: 'release')
     debugCompile project(path: ':component_utils', configuration: 'debug')
 
+    releaseCompile project(path: ':component_theme', configuration: 'release')
+    debugCompile project(path: ':component_theme', configuration: 'debug')
+
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.annotationButterKnifeVersion"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.annotationArouterVersion"

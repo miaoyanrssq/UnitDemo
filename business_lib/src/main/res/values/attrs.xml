@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="biz_vg_backgroundcolor" format="color" />
+    <attr name="biz_text_color" format="color"></attr>
+    <attr name="biz_text_background_color" format="color"></attr>
+
+</resources>

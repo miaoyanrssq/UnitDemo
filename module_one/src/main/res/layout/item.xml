@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_marginTop="@dimen/biz_dp3"
+    android:layout_height="80dp">
+<TextView
+    android:gravity="center"
+    android:text="这是条目"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+</LinearLayout>

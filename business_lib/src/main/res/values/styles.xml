@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--白天主题，此处直接和AppTheme一样-->
+    <style name="biz_DayTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimaryDark">@color/biz_firebrick</item>
+        <item name="biz_vg_backgroundcolor">@color/biz_white</item>
+        <item name="biz_text_color">@color/biz_black</item>
+    </style>
+
+    <!--夜间主题-->
+    <style name="biz_NightTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimaryDark">@color/biz_darkslategrey</item>
+        <item name="biz_vg_backgroundcolor">@color/biz_darkslategrey</item>
+        <item name="biz_text_color">@color/biz_white</item>
+    </style>
+
+</resources>

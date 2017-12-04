@@ -1,7 +1,10 @@
 package com.zjrb.bizman.ui;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
+import com.example.component_theme.ThemeComponent;
 import com.zjrb.bizman.listener.OnPageInitialize;
 import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 
@@ -16,6 +19,21 @@ public abstract class BaseActivity extends FragmentActivity implements OnRequest
 
     public BaseActivity() {
         mOnRequestListener = this;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initTheme();
+
+    }
+
+    /**
+     * 初始化theme
+     */
+    private void initTheme() {
+        ThemeComponent.getDefault().initTheme(this);
+
     }
 
     @Override

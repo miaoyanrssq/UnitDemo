@@ -2,16 +2,16 @@ package com.zjrb.bizman.module_one;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.zjrb.bizman.BaseApplication;
+import com.zjrb.bizman.adapter.SimpleAdapter;
 import com.zjrb.bizman.constant.RouterPath;
-import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
 import com.zjrb.bizman.service.AppService;
 import com.zjrb.bizman.ui.BaseFragment;
 
@@ -26,9 +26,9 @@ import butterknife.Unbinder;
 
 public class FragmentOne extends BaseFragment {
 
-    @BindView(R2.id.moduleone_tv)
-    TextView tv;
     Unbinder unbinder;
+    @BindView(R2.id.rv)
+    RecyclerView rv;
     @Autowired(name = RouterPath.APP_SERVICE)
     private AppService service;
 
@@ -61,23 +61,26 @@ public class FragmentOne extends BaseFragment {
 
     @Override
     public void initView() {
-        tv.setText("模块一");
-        service = (AppService) ARouter.getInstance().build("/app/service").navigation();
-        if(service == null){
-            Toast.makeText(getContext(),"找不到服务",Toast.LENGTH_SHORT).show();
-            return;
-        }
-        service.login(getContext(), new OnRequestListener() {
-            @Override
-            public void onSuccess(int requestCode, int responseCode, Object response) {
+//        service = (AppService) ARouter.getInstance().build("/app/service").navigation();
+//        if(service == null){
+//            Toast.makeText(getContext(),"找不到服务",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        service.login(getContext(), new OnRequestListener() {
+//            @Override
+//            public void onSuccess(int requestCode, int responseCode, Object response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(int requestCode, int responseCode, String errMsg) {
+//
+//            }
+//        });
 
-            }
+        rv.setLayoutManager(new LinearLayoutManager(BaseApplication.getContext()));
+        rv.setAdapter(new SimpleAdapter());
 
-            @Override
-            public void onFailure(int requestCode, int responseCode, String errMsg) {
-
-            }
-        });
     }
 
     @Override
