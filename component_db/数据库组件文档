@@ -1,0 +1,12 @@
+### 目录结构
+/beans  实体类目录  
+/daos   green dao自动生成的代码目录  
+### 使用规范
+请在application中初始化,初始化代码如下:  
+
+```
+DBComponent.init(Context);
+```
+
+### 注意
+目前数据库组件不能单独维护,需要配合项目使用

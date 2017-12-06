@@ -22,6 +22,12 @@ public interface IApiReuqester {
             , final OnRequestCallback listener
     );
 
+    void post(final int requestCode
+            , final String url
+            , final Object param
+            , final OnRequestCallback listener
+    );
+
 
 
 

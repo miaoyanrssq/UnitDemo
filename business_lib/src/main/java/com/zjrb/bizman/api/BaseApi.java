@@ -18,7 +18,7 @@ public class BaseApi implements OnRequestCallback {
     protected OnRequestListener mListener;
 
 
-    public void call(int requestCode,String url,BaseParam param,OnRequestListener listener){
+    public void call(int requestCode, String url,BaseParam param, OnRequestListener listener){
         mListener = listener;
         ApiRequesterFactory.getInstance().get(
                 requestCode

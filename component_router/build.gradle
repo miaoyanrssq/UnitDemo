@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
-    resourcePrefix "net_"  //资源前缀
+    resourcePrefix "arouter_"  //资源前缀
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
@@ -11,11 +11,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [ moduleName : project.getName() ]
-            }
-        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -35,11 +30,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    releaseCompile project(path: ':component_utils', configuration: 'release')
-    debugCompile project(path: ':component_utils', configuration: 'debug')
-
-    compile "com.squareup.okhttp3:okhttp:3.9.0"
-    compile "com.google.code.gson:gson:2.8.0"
-
+    compile "com.alibaba:arouter-api:1.2.1.1"
+    compile "org.greenrobot:eventbus:3.0.0"
 }

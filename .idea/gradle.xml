@@ -10,9 +10,10 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/business_lib" />
-            <option value="$PROJECT_DIR$/component_arouter" />
+            <option value="$PROJECT_DIR$/component_db" />
             <option value="$PROJECT_DIR$/component_image" />
             <option value="$PROJECT_DIR$/component_net" />
+            <option value="$PROJECT_DIR$/component_router" />
             <option value="$PROJECT_DIR$/component_theme" />
             <option value="$PROJECT_DIR$/component_utils" />
             <option value="$PROJECT_DIR$/module_four" />

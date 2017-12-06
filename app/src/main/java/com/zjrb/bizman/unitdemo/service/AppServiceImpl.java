@@ -16,7 +16,7 @@ public class AppServiceImpl implements AppService{
 
     @Override
     public void login(Context context,OnRequestListener listener) {
-        LoginParam param = new LoginParam(context);
+        LoginParam param = new LoginParam();
         param.username = "chenshaohua";
         param.password = "12345678";
         UserApi.build().login(param, listener);

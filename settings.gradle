@@ -1,1 +1,1 @@
-include ':app', ':business_lib', ':module_one', ':module_two', ':module_three', ':module_four', ':component_net', ':component_image', ':component_arouter', ':component_utils', ':component_theme'
+include ':app', ':business_lib', ':module_one', ':module_two', ':module_three', ':module_four', ':component_net', ':component_image', ':component_router', ':component_utils', ':component_theme', ':component_db'

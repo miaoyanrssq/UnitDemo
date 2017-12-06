@@ -1,18 +1,9 @@
 package com.zjrb.bizman.api;
 
-import android.content.Context;
-
-
-import java.io.Serializable;
-
 /**
- * 请求参数基类
- * Created by lujialei
+ * Created by gary on 2017/12/6.
  */
-public abstract class BaseParam implements Serializable {
 
+public class BaseParam {
 
-    public BaseParam(Context context) {
-
-    }
 }

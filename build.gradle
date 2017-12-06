@@ -3,11 +3,13 @@
 buildscript {
     repositories {
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.jakewharton:butterknife-gradle-plugin:8.4.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.0.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -29,14 +31,9 @@ ext {
     // App dependencies version
     annotationButterKnifeVersion = "8.5.1"
     annotationArouterVersion = "1.1.2"
-    arouterVersion = "1.2.1.1"
     butterknifeVersion = "8.5.1"
     recyclerviewVersion = "26.0.0-alpha1"
     appcompatv7Version = "26.0.0-alpha1"
-    glideVersion = "3.6.1"
-    loggerVersion = "2.1.1"
-    okhttpVersion = "3.9.0"
-    gsonVersion = "2.8.0"
 
 }
 

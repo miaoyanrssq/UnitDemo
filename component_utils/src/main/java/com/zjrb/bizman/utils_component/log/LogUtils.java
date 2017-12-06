@@ -1,12 +1,5 @@
 package com.zjrb.bizman.utils_component.log;
-
-import com.orhanobut.logger.AndroidLogAdapter;
-import com.orhanobut.logger.FormatStrategy;
-import com.orhanobut.logger.LogcatLogStrategy;
-import com.orhanobut.logger.Logger;
-import com.orhanobut.logger.PrettyFormatStrategy;
 import com.socks.library.KLog;
-import com.zjrb.bizman.utils_component.BuildConfig;
 
 /**
  * 全局日志类

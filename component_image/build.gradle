@@ -30,8 +30,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
 
-    releaseCompile project(path: ':component_arouter', configuration: 'release')
-    debugCompile project(path: ':component_arouter', configuration: 'debug')
+    releaseCompile project(path: ':component_utils', configuration: 'release')
+    debugCompile project(path: ':component_utils', configuration: 'debug')
+
+    compile "com.github.bumptech.glide:glide:3.6.1"
 }

@@ -39,10 +39,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    releaseCompile project(path: ':component_arouter', configuration: 'release')
-    debugCompile project(path: ':component_arouter', configuration: 'debug')
-    compile "com.orhanobut:logger:$rootProject.ext.loggerVersion"
     compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
     compile "com.android.support:appcompat-v7:$rootProject.ext.appcompatv7Version"
-    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.annotationArouterVersion"
 }

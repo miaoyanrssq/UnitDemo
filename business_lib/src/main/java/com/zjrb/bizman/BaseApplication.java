@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.component_db.DBComponent;
 import com.example.component_theme.ThemeComponent;
 import com.socks.library.KLog;
 import com.zjrb.bizman.commonlib.R;
@@ -30,6 +31,7 @@ public class BaseApplication extends Application {
         KLog.init(BuildConfig.IS_DEBUG_MODE);
         NetComponent.init(this);
         initThemeComponent();
+        DBComponent.init(this);
 
     }
 
