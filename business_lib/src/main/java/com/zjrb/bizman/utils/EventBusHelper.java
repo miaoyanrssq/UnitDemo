@@ -1,6 +1,6 @@
 package com.zjrb.bizman.utils;
 
-import android.os.Message;
+import com.zjrb.bizman.event.Event;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -27,19 +27,13 @@ public class EventBusHelper {
         mEventBus.unregister(subscriber);
     }
     
-    public static void post(int what, Object obj) {
+    public static void post(Event event) {
         if (mEventBus == null)
             return;
-        if (obj == null)
+        if (event == null)
             return;
-        
-        Message msg = Message.obtain();
-        msg.what = what;
-        msg.obj = obj;
-        mEventBus.post(msg);
+
+        mEventBus.post(event);
     }
     
-    public static void post(int what) {
-        post(what, new Object());
-    }
 }

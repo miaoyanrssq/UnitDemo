@@ -4,6 +4,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.zjrb.bizman.BaseApplication;
@@ -13,6 +14,7 @@ import com.zjrb.bizman.unitdemo.R;
 import com.zjrb.bizman.unitdemo.ui.widget.BottomBar;
 import com.zjrb.bizman.unitdemo.webapi.api.UserApi;
 import com.zjrb.bizman.unitdemo.webapi.parm.LoginParam;
+import com.zjrb.bizman.utils.EventBusHelper;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -43,25 +45,15 @@ public class MainActivity extends BaseActivity implements BottomBar.OnTabSelecte
     public void initView() {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        EventBus.getDefault().register(this);
+        EventBusHelper.register(this);
         bottomBar.initFragment(getSupportFragmentManager());
+
     }
 
     @Subscribe
     public void onThemeChanged(ThemeEvent event){
         if(event.isDayMode){
             SkinManager.getInstance().restoreDefaultTheme();
-//            Resources resources = BaseApplication.getContext().getResources();
-//            int id = resources.getIdentifier("item_bg","color","com.zjrb.bizman.business_lib");
-//            int color = resources.getColor(com.zjrb.bizman.business_lib.R.color.biz_item_bg);
-//            AssetManager assetManager = resources.getAssets();
-//            String path = getPackageResourcePath();
-//            try {
-//                String[] paths = assetManager.list(path);
-//                int i = 0;
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
         }else {
             SkinManager.getInstance().nightMode();
         }
@@ -107,6 +99,6 @@ public class MainActivity extends BaseActivity implements BottomBar.OnTabSelecte
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
+        EventBusHelper.unregister(this);
     }
 }

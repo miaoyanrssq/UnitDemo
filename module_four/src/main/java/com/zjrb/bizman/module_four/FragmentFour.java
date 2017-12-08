@@ -16,6 +16,7 @@ import com.zjrb.bizman.BaseApplication;
 import com.zjrb.bizman.event.ThemeEvent;
 import com.zjrb.bizman.manager.ActivityLauncher;
 import com.zjrb.bizman.ui.BaseFragment;
+import com.zjrb.bizman.utils.EventBusHelper;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -63,7 +64,9 @@ public class FragmentFour extends BaseFragment {
     public void initView() {
         fourTv.setText("模块四");
         cb.setChecked(!SkinManager.getInstance().isNightMode());
-        rv.setLayoutManager(new LinearLayoutManager(BaseApplication.getContext()));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BaseApplication.getContext());
+        linearLayoutManager.setRecycleChildrenOnDetach(false);
+        rv.setLayoutManager(linearLayoutManager);
         rv.setAdapter(new MyAdapter());
     }
 
@@ -79,7 +82,7 @@ public class FragmentFour extends BaseFragment {
         cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                EventBus.getDefault().post(new ThemeEvent(isChecked));
+                EventBusHelper.post(new ThemeEvent(isChecked));
             }
         });
     }
