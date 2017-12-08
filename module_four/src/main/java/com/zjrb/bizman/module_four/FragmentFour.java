@@ -2,6 +2,8 @@ package com.zjrb.bizman.module_four;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,9 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.component_theme.ThemeComponent;
-import com.example.component_theme.ThemeAnimation;
+import com.zjrb.bizman.BaseApplication;
 import com.zjrb.bizman.event.ThemeEvent;
 import com.zjrb.bizman.manager.ActivityLauncher;
-import com.zjrb.bizman.theme.ThemeColor;
-import com.zjrb.bizman.theme.ThemeMode;
 import com.zjrb.bizman.ui.BaseFragment;
 
 import org.greenrobot.eventbus.EventBus;
@@ -23,6 +22,7 @@ import org.greenrobot.eventbus.EventBus;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import solid.ren.skinlibrary.loader.SkinManager;
 
 /**
  * Created by lujialei on 2017/11/23.
@@ -36,6 +36,8 @@ public class FragmentFour extends BaseFragment {
     CheckBox cb;
     @BindView(R2.id.ll_root)
     LinearLayout llRoot;
+    @BindView(R2.id.rv)
+    RecyclerView rv;
 
     @Nullable
     @Override
@@ -60,51 +62,10 @@ public class FragmentFour extends BaseFragment {
     @Override
     public void initView() {
         fourTv.setText("模块四");
-        initCheckBox();
-        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                EventBus.getDefault().post(new ThemeEvent(isChecked));
-                changeSelfTheme();
-            }
-        });
+        cb.setChecked(!SkinManager.getInstance().isNightMode());
+        rv.setLayoutManager(new LinearLayoutManager(BaseApplication.getContext()));
+        rv.setAdapter(new MyAdapter());
     }
-
-    /**
-     * 根据当前主题状态设置checkbox
-     */
-    private void initCheckBox() {
-        int themeID = ThemeComponent.getDefault().getCurrentTheme();
-       if (themeID == ThemeMode.THEME_DAY) {
-            cb.setChecked(true);
-        } else {
-            cb.setChecked(false);
-        }
-    }
-
-    /**
-     * 切换当前页面的主题ui
-     */
-    private void changeSelfTheme() {
-        ThemeAnimation.show(getActivity());
-        refreshUI();
-    }
-
-    /**
-     * 刷新当前界面
-     */
-    private void refreshUI() {
-        int textColorResID = ThemeComponent.getDefault().getThemeColor(ThemeColor.COLOR_TEXT,getActivity().getTheme());
-        int backgbroundColorResID = ThemeComponent.getDefault().getThemeColor(ThemeColor.COLOR_BACKGROUND,getActivity().getTheme());
-
-        fourTv.setTextColor(textColorResID);
-        llRoot.setBackgroundResource(backgbroundColorResID);
-
-    }
-
-
-
-
 
 
     @Override
@@ -113,6 +74,12 @@ public class FragmentFour extends BaseFragment {
             @Override
             public void onClick(View v) {
                 ActivityLauncher.gotoTestActivity(getActivity());
+            }
+        });
+        cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                EventBus.getDefault().post(new ThemeEvent(isChecked));
             }
         });
     }

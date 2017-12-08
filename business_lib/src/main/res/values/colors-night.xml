@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--状态栏颜色-->
+    <color name="colorPrimaryDark_night">#ABABAB</color>
+
+    <!--demo item背景色1-->
+    <color name="biz_item_bg_night">#000000</color>
+    <!--文字颜色1-->
+    <color name="biz_item_tv_night">#F2F2F2</color>
+</resources>

@@ -1,7 +1,7 @@
 package com.zjrb.bizman.api;
 
 
-import com.zjrb.bizman.commonlib.BuildConfig;
+import com.zjrb.bizman.business_lib.BuildConfig;
 import com.zjrb.bizman.net_component.ApiRequesterFactory;
 import com.zjrb.bizman.net_component.interfaces.OnRequestCallback;
 import com.zjrb.bizman.net_component.interfaces.OnRequestListener;

@@ -10,10 +10,10 @@
     android:layout_height="match_parent"
     android:layout_weight="1">
     <ImageView
+        android:background="@android:color/holo_red_light"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:id="@+id/iv_icon0"
-        android:background="@color/colorPrimaryDark"
         />
     <TextView
         android:id="@+id/tv_title0"
@@ -32,10 +32,10 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
         <ImageView
+            android:background="@android:color/holo_red_light"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/iv_icon1"
-            android:background="@color/colorPrimaryDark"
             />
         <TextView
             android:id="@+id/tv_title1"
@@ -54,10 +54,10 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
         <ImageView
+            android:background="@android:color/holo_red_light"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/iv_icon2"
-            android:background="@color/colorPrimaryDark"
             />
         <TextView
             android:id="@+id/tv_title2"
@@ -76,10 +76,10 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
         <ImageView
+            android:background="@android:color/holo_red_light"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/iv_icon3"
-            android:background="@color/colorPrimaryDark"
             />
         <TextView
             android:id="@+id/tv_title3"

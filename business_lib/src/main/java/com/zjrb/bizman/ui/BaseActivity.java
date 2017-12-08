@@ -4,16 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
-import com.example.component_theme.ThemeComponent;
 import com.zjrb.bizman.listener.OnPageInitialize;
 import com.zjrb.bizman.net_component.interfaces.OnRequestListener;
+
+import solid.ren.skinlibrary.base.SkinBaseActivity;
 
 
 /**
  * Created by lujialei on 2017/11/14.
  */
 
-public abstract class BaseActivity extends FragmentActivity implements OnRequestListener,OnPageInitialize {
+public abstract class BaseActivity extends SkinBaseActivity implements OnRequestListener,OnPageInitialize {
 
     protected OnRequestListener mOnRequestListener;
 
@@ -24,17 +25,9 @@ public abstract class BaseActivity extends FragmentActivity implements OnRequest
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initTheme();
 
     }
 
-    /**
-     * 初始化theme
-     */
-    private void initTheme() {
-        ThemeComponent.getDefault().initTheme(this);
-
-    }
 
     @Override
     public void onSuccess(int requestCode, int responseCode, Object response) {

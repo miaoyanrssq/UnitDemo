@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.zjrb.bizman.BaseApplication;
-import com.zjrb.bizman.adapter.SimpleAdapter;
 import com.zjrb.bizman.constant.RouterPath;
 import com.zjrb.bizman.service.AppService;
 import com.zjrb.bizman.ui.BaseFragment;
@@ -79,7 +78,7 @@ public class FragmentOne extends BaseFragment {
 //        });
 
         rv.setLayoutManager(new LinearLayoutManager(BaseApplication.getContext()));
-        rv.setAdapter(new SimpleAdapter());
+        rv.setAdapter(new MyAdapter());
 
     }
 

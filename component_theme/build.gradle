@@ -1,21 +1,19 @@
 apply plugin: 'com.android.library'
 
+
+version = "2.0.0-beta8"
+
 android {
     resourcePrefix "theme_"  //资源前缀
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -23,20 +21,17 @@ android {
         }
 
         debug {
-            buildConfigField 'boolean', 'IS_DEBUG_MODE', IS_DEBUG_MODE_DEBUG
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', "BASE_URL", BASE_URL_DEBUG
         }
+
         /* 跟随主项目buildType */
         publishNonDefault true
     }
-
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    releaseCompile project(path: ':component_utils', configuration: 'release')
-    debugCompile project(path: ':component_utils', configuration: 'debug')
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile "com.android.support:appcompat-v7:$rootProject.ext.appcompatv7Version"
 }
+

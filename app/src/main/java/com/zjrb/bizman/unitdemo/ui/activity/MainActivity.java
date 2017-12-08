@@ -1,30 +1,27 @@
 package com.zjrb.bizman.unitdemo.ui.activity;
 
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.View;
 
-import com.example.component_db.DBComponent;
-import com.example.component_db.beans.Student;
-import com.example.component_db.daos.DaoMaster;
-import com.example.component_db.daos.DaoSession;
-import com.example.component_theme.ThemeComponent;
-import com.zjrb.bizman.manager.ActivityLauncher;
-import com.zjrb.bizman.theme.ThemeMode;
+import com.zjrb.bizman.BaseApplication;
 import com.zjrb.bizman.event.ThemeEvent;
 import com.zjrb.bizman.ui.BaseActivity;
 import com.zjrb.bizman.unitdemo.R;
 import com.zjrb.bizman.unitdemo.ui.widget.BottomBar;
 import com.zjrb.bizman.unitdemo.webapi.api.UserApi;
 import com.zjrb.bizman.unitdemo.webapi.parm.LoginParam;
-import com.zjrb.bizman.utils_component.log.LogUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-import java.util.List;
+import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import solid.ren.skinlibrary.loader.SkinManager;
 
 public class MainActivity extends BaseActivity implements BottomBar.OnTabSelectedListener {
 
@@ -36,7 +33,6 @@ public class MainActivity extends BaseActivity implements BottomBar.OnTabSelecte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
         initView();
         initVariable();
         initListener();
@@ -47,14 +43,29 @@ public class MainActivity extends BaseActivity implements BottomBar.OnTabSelecte
     public void initView() {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         bottomBar.initFragment(getSupportFragmentManager());
     }
 
     @Subscribe
-    public void onChangeTheme(ThemeEvent themeEvent){
-        ThemeComponent.getDefault().saveThemeMode(this,themeEvent.isDayTheme?ThemeMode.THEME_DAY:ThemeMode.THEME_NIGHT);
+    public void onThemeChanged(ThemeEvent event){
+        if(event.isDayMode){
+            SkinManager.getInstance().restoreDefaultTheme();
+//            Resources resources = BaseApplication.getContext().getResources();
+//            int id = resources.getIdentifier("item_bg","color","com.zjrb.bizman.business_lib");
+//            int color = resources.getColor(com.zjrb.bizman.business_lib.R.color.biz_item_bg);
+//            AssetManager assetManager = resources.getAssets();
+//            String path = getPackageResourcePath();
+//            try {
+//                String[] paths = assetManager.list(path);
+//                int i = 0;
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+        }else {
+            SkinManager.getInstance().nightMode();
+        }
     }
-
 
 
     @Override

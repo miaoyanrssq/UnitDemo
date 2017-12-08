@@ -46,19 +46,19 @@ dependencies {
     releaseCompile project(path: ':component_utils', configuration: 'release')
     debugCompile project(path: ':component_utils', configuration: 'debug')
 
-    releaseCompile project(path: ':component_theme', configuration: 'release')
-    debugCompile project(path: ':component_theme', configuration: 'debug')
-
     releaseCompile project(path: ':component_router', configuration: 'release')
     debugCompile project(path: ':component_router', configuration: 'debug')
 
     releaseCompile project(path: ':component_db', configuration: 'release')
     debugCompile project(path: ':component_db', configuration: 'debug')
 
+    releaseCompile project(path: ':component_theme', configuration: 'release')
+    debugCompile project(path: ':component_theme', configuration: 'debug')
+
+
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.annotationButterKnifeVersion"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.annotationArouterVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.ext.recyclerviewVersion"
-    compile "com.android.support:appcompat-v7:$rootProject.ext.appcompatv7Version"
     annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.annotationArouterVersion"
 }

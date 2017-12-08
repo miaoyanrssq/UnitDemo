@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="60dp"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:tools="http://schemas.android.com/tools"
+    skin:enable="true"
+    tools:ignore="MissingPrefix"
+    >
+    <TextView
+        android:background="@color/biz_item_bg"
+        android:text="这是条目"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/biz_item_tv"
+        skin:enable="true"/>
+</LinearLayout>
