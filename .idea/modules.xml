@@ -3,6 +3,18 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/UnitDemo.iml" filepath="$PROJECT_DIR$/UnitDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/business_lib/business_lib.iml" filepath="$PROJECT_DIR$/business_lib/business_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component_db/component_db.iml" filepath="$PROJECT_DIR$/component_db/component_db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component_image/component_image.iml" filepath="$PROJECT_DIR$/component_image/component_image.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component_net/component_net.iml" filepath="$PROJECT_DIR$/component_net/component_net.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component_router/component_router.iml" filepath="$PROJECT_DIR$/component_router/component_router.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component_theme/component_theme.iml" filepath="$PROJECT_DIR$/component_theme/component_theme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/component_utils/component_utils.iml" filepath="$PROJECT_DIR$/component_utils/component_utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_four/module_four.iml" filepath="$PROJECT_DIR$/module_four/module_four.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_one/module_one.iml" filepath="$PROJECT_DIR$/module_one/module_one.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_three/module_three.iml" filepath="$PROJECT_DIR$/module_three/module_three.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_two/module_two.iml" filepath="$PROJECT_DIR$/module_two/module_two.iml" />
     </modules>
   </component>
 </project>
